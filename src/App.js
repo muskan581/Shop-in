@@ -143,19 +143,42 @@ function App() {
     }
   }, [dispatch, user])
 
+  // useEffect(() => {
+  //   const checkUserLoggendIn = async () => {
+  //       const response = await fetch("http://localhost:8080/auth/checkUserLoggedIn/", {
+  //         method: "GET",
+  //         credentials: "include"
+  //       });
+  //       if(response.ok) {
+  //         const data = await response.json();
+  //         dispatch(setLoggedInUser(data));
+  //       }
+  //   }
+  //   checkUserLoggendIn();
+  // }, []);
+
   useEffect(() => {
-    const checkUserLoggendIn = async () => {
-        const response = await fetch("https://shop-in-server.vercel.app/auth/checkUserLoggedIn/", {
+  const checkUserLoggendIn = async () => {
+    try {
+      const response = await fetch(
+        "http://localhost:8080/auth/checkUserLoggedIn",
+        {
           method: "GET",
           credentials: "include"
-        });
-        if(response.ok) {
-          const data = await response.json();
-          dispatch(setLoggedInUser(data));
         }
+      );
+
+      if (response.ok) {
+        const data = await response.json();
+        dispatch(setLoggedInUser(data));
+      }
+    } catch (error) {
+      console.log("Auth Error:", error);
     }
-    checkUserLoggendIn();
-  }, []);
+  };
+
+  checkUserLoggendIn();
+}, [dispatch]);
 
   return (
     <div className="overflow-hidden font-lora">

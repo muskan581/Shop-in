@@ -1,6 +1,6 @@
 export function addToCart(item) {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://shop-in-server.vercel.app/cart/',
+    const response = await fetch('http://localhost:8080/cart/',
       {
         method: 'POST',
         body: JSON.stringify(item),
@@ -15,7 +15,7 @@ export function addToCart(item) {
 
 export function fetchItemsByUserId(userId) {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://shop-in-server.vercel.app/cart?user=' + userId)
+    const response = await fetch('http://localhost:8080/cart?user=' + userId)
     const data = await response.json();
     resolve({ data })
   }
@@ -24,7 +24,7 @@ export function fetchItemsByUserId(userId) {
 
 export function updateCart(update) {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://shop-in-server.vercel.app/cart/' + update.id,
+    const response = await fetch('http://localhost:8080/cart/' + update.id,
       {
         method: 'PATCH',
         body: JSON.stringify(update),
@@ -39,7 +39,7 @@ export function updateCart(update) {
 
 export function deleteItemFromCart(itemId) {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://shop-in-server.vercel.app/cart/' + itemId,
+    const response = await fetch('http://localhost:8080/cart/' + itemId,
       {
         method: 'DELETE',
         // body: JSON.stringify(itemId),    //shayad delte request me ye nahi bhejte

@@ -20,9 +20,24 @@ export default function Example() {
     const user = useSelector(selectUserInfo)
     const currentOrder = useSelector(selectCurrentOrder)
 
-    const items = useSelector(selectItems)
-    const totalAmount = Math.round(items.reduce((amount, item) => discountedPrice(item.product) * item.quantity + amount, 0))
-    const totalItems = items.reduce((total, item) => item.quantity + total, 0)
+    // const items = useSelector(selectItems)
+    // const totalAmount = Math.round(items.reduce((amount, item) => discountedPrice(item.product) * item.quantity + amount, 0))
+    // const totalItems = items.reduce((total, item) => item.quantity + total, 0)
+
+    const items = useSelector(selectItems) || []
+
+const totalAmount = Math.round(
+  items.reduce(
+    (amount, item) =>
+      discountedPrice(item.product) * item.quantity + amount,
+    0
+  )
+)
+
+const totalItems = items.reduce(
+  (total, item) => item.quantity + total,
+  0
+)
 
     const [selectedAddress, setSelectedAddress] = useState(null)
     const [paymentMethod, setPaymentMethod] = useState('cash')
@@ -234,7 +249,7 @@ export default function Example() {
                                         Choose from existing address
                                     </p>
                                     <ul role="list" className="divide-y divide-gray-100">
-                                        {user.addresses.map((person, index) => (
+                                        {user?.addresses?.map((person, index) => (
                                             <li key={index} className="flex justify-between gap-x-6 py-5">
                                                 <div className="flex min-w-0 gap-x-4">
                                                     <input

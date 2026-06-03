@@ -25,3 +25,7 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+dump/
+mongodb-database-tools-windows-x86_64-100.17.0/
+mongodb-database-tools-windows-x86_64-100.17.0.zip

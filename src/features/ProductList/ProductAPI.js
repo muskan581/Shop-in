@@ -1,7 +1,7 @@
 // A mock function to mimic making an async request for data
 export function createProduct(product) {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://shop-in-server.vercel.app/products', 
+    const response = await fetch('http://localhost:8080/products', 
       {
         method: "POST",
         body: JSON.stringify(product),    
@@ -16,7 +16,7 @@ export function createProduct(product) {
 
 export function updateProduct(update) {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://shop-in-server.vercel.app/products/' + update.id,
+    const response = await fetch('http://localhost:8080/products/' + update.id,
       {
         method: 'PATCH',
         body: JSON.stringify(update),
@@ -31,7 +31,7 @@ export function updateProduct(update) {
 
 export function deleteProduct(product) {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://shop-in-server.vercel.app/products/' + product.id,
+    const response = await fetch('http://localhost:8080/products/' + product.id,
       {
         method: 'DELETE',
         // body: JSON.stringify(product),
@@ -73,7 +73,7 @@ export function fetchProductsByFilter({ filter, sort, pagination, admin }) {
 
   console.log("queryString", queryString)
   return new Promise(async (resolve) => {
-    const response = await fetch('https://shop-in-server.vercel.app/products?' + queryString)
+    const response = await fetch('http://localhost:8080/products?' + queryString)
     const data = await response.json();
 
     const totalItems = await response.headers.get('X-Total-Count')
@@ -87,7 +87,7 @@ export function fetchProductsByFilter({ filter, sort, pagination, admin }) {
 
 export function fetchProductById(id) {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://shop-in-server.vercel.app/products/' + id)
+    const response = await fetch('http://localhost:8080/products/' + id)
     const data = await response.json();
     resolve({ data })
   }
@@ -96,7 +96,7 @@ export function fetchProductById(id) {
 
 export function fetchBrands() {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://shop-in-server.vercel.app/brands')
+    const response = await fetch('http://localhost:8080/brands')
     const data = await response.json();
     resolve({ data })
   }
@@ -105,7 +105,7 @@ export function fetchBrands() {
 
 export function fetchCategories() {
   return new Promise(async (resolve) => {
-    const response = await fetch('https://shop-in-server.vercel.app/categories')
+    const response = await fetch('http://localhost:8080/categories')
     const data = await response.json();
     resolve({ data })
   }
