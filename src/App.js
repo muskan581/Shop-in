@@ -145,7 +145,7 @@ function App() {
 
   // useEffect(() => {
   //   const checkUserLoggendIn = async () => {
-  //       const response = await fetch("http://https://shop-in-yaeu.onrender.com/auth/checkUserLoggedIn/", {
+  //       const response = await fetch("https://shop-in-yaeu.onrender.com/auth/checkUserLoggedIn/", {
   //         method: "GET",
   //         credentials: "include"
   //       });
@@ -161,7 +161,7 @@ function App() {
   const checkUserLoggendIn = async () => {
     try {
       const response = await fetch(
-        "http://https://shop-in-yaeu.onrender.com/auth/checkUserLoggedIn",
+        "https://shop-in-yaeu.onrender.com/auth/checkUserLoggedIn",
         {
           method: "GET",
           credentials: "include"
