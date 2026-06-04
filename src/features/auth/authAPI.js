@@ -1,7 +1,7 @@
 // A mock function to mimic making an async request for data
 export function createUser(userData) {
   return new Promise(async (resolve) => {
-    const response = await fetch('http://localhost:8080/auth/signup',
+    const response = await fetch('http://https://shop-in-yaeu.onrender.com/auth/signup',
       {
         method: 'POST',
         body: JSON.stringify(userData),
@@ -19,7 +19,7 @@ export function createUser(userData) {
 export function checkUser(loginInfo) {
   return new Promise(async (resolve, reject) => {
     try {
-      const response = await fetch('http://localhost:8080/auth/login',
+      const response = await fetch('http://https://shop-in-yaeu.onrender.com/auth/login',
         {
           method: 'POST',
           body: JSON.stringify(loginInfo),
@@ -46,7 +46,7 @@ export function checkUser(loginInfo) {
 
 export async function signOut() {
   try {
-    const response = await fetch('http://localhost:8080/auth/logout', {
+    const response = await fetch('http://https://shop-in-yaeu.onrender.com/auth/logout', {
       method: 'POST',
       credentials: 'include', // Ensure cookies are included in the request
     });
