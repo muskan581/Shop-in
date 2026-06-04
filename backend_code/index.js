@@ -33,11 +33,16 @@ const ordersRouter = require("./routes/Order");
 // }));
 
 server.use(cors({
+  // origin: [
+  //   "http://localhost:3000",
+  //   "http://localhost:5173",
+  //   "https://shop-in-chi.vercel.app"
+  // ],
   origin: [
-    "http://localhost:3000",
-    "http://localhost:5173",
-    "https://shop-in-chi.vercel.app"
-  ],
+  "http://localhost:3000",
+  "http://localhost:5173",
+  "https://shop-in-blush.vercel.app"
+],
   methods: ["GET", "POST", "PUT", "PATCH", "DELETE"],
   credentials: true,
   exposedHeaders: ["X-Total-Count"]
